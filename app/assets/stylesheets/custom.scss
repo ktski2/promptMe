@@ -15,6 +15,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background-color: #f7f7f5;
 }
 
 section {
@@ -36,6 +37,7 @@ textarea {
 
 h1, h2, h3, h4, h5, h6 {
   line-height: 1;
+  color: #6f7272;
 }
 
 h1 {
@@ -66,8 +68,8 @@ p {
   float: left;
   margin-right: 10px;
   font-size: 1.7em;
-  color: white;
-  text-transform: uppercase;
+  color: #f7f7f5;
+  //text-transform: uppercase;
   letter-spacing: -1px;
   padding-top: 9px;
   font-weight: bold;
@@ -78,15 +80,20 @@ p {
 }
 
 #my_navbar {
-  background-color: #20B2AA;
+  background-color: #bae0dc;
   border: none;
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: white;
+  color: #f7f7f5;//#ebebe6;
 }
 .navbar-inverse .navbar-nav > li > a:hover {
-  color: black;
+  color: white;
+}
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  color: white;
+  background-color: #bae0dc;
 }
 
 /* footer */
