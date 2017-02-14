@@ -9,13 +9,13 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
-  	<div class="container">
-      <% flash.each do |message_type, message| %>
-        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-      <% end %>
-      <%= yield %>
-      <%= render 'layouts/footer' %>
-    </div>
+    <% if !current_page?(root_path) %>
+      <%= render 'layouts/header' %>
+    <% end %>
+    <% flash.each do |message_type, message| %>
+      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+    <% end %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
   </body>
 </html>

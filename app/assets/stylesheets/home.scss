@@ -1,3 +1,15 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.home {
+  .jumbotron {
+    //padding-bottom: 200px;
+    //background-image: url('http://i.huffpost.com/gen/1511914/images/o-BOSTON-facebook.jpg');
+    background-size: cover;
+    height: 100%;
+  }
+
+  body {
+    padding-top: 0px;
+  }
+}
