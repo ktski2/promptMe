@@ -9,4 +9,6 @@ User.create!(username:  "ktski2",
              email: "katie.zablock@gmail.com",
              password:              "llamas64",
              password_confirmation: "llamas64",
-             admin: true)
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)

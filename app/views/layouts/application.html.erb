@@ -12,9 +12,11 @@
     <% if !current_page?(root_path) %>
       <%= render 'layouts/header' %>
     <% end %>
+    <div class="container">
     <% flash.each do |message_type, message| %>
       <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
     <% end %>
+    </div>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
