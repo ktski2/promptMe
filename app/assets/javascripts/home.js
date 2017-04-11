@@ -1,8 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+// Place all the behaviors and hooks related to the matching controller here.
+// All this logic will automatically be available in application.js.
+// You can use CoffeeScript in this file: http://coffeescript.org/
 
-$('.home').ready ->
+/*$('.home').ready ->
 
   $('.card').on 'click', (event) ->
     $('#myModal').modal('show',$(this));
@@ -44,4 +44,4 @@ $('.home').ready ->
 #  $('.card-block').on('click', function(event) {
 #     alert('You clicked the Bootstrap Card');
 #  });
-#});
+#});*/
