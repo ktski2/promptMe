@@ -1,9 +1,10 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+//@import "bootstrap-sprockets";
+
 
 /* mixins, variables, etc. */
 
 $gray-medium-light: #eaeaea;
+$gray-darker: #222;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -15,6 +16,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background-color: #F2F2F0;
 }
 
 section {
@@ -70,7 +72,6 @@ p {
   color: #f7f7f5;
   //text-transform: uppercase;
   letter-spacing: -1px;
-  padding-top: 9px;
   font-weight: bold;
   &:hover {
     color: white;
@@ -79,8 +80,24 @@ p {
 }
 
 #my_navbar {
-  background-color: #bae0dc;
+  background-color: #11BFAE;
   border: none;
+  padding: 0.1em 1em;
+  .dropdown-menu {
+    left: -4em;
+    padding: 0.2em 0;
+    background-color: #F2F2F0;
+    a {
+      color: #11BFAE;
+      &:hover {
+        text-decoration: none;
+        background-color: #f5f5f5;
+      }
+    }
+    .dropdown-divider {
+      margin: 0;
+    }
+  }
 }
 
 .navbar-inverse .navbar-nav > li > a {
@@ -92,7 +109,7 @@ p {
 
 .navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
   color: white;
-  background-color: #bae0dc;
+  background-color: #11BFAE;
 }
 
 /* footer */
@@ -127,6 +144,8 @@ input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
   width: 100%;
   margin-bottom: 15px;
+  overflow: auto;
+  resize: none;
   @include box_sizing;
 }
 
@@ -140,7 +159,7 @@ input, textarea, select, .uneditable-input {
 }
 
 .field_with_errors {
-  @extend .has-error;
+  @extend .has-danger;
   .form-control {
     color: $state-danger-text;
   }
@@ -158,4 +177,16 @@ input, textarea, select, .uneditable-input {
 #session_remember_me {
   width: auto;
   margin-left: 0;
+}
+
+.card {
+  margin-bottom: 1em;
+  color: #456173;
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.new_form {
+  margin: auto;
 }

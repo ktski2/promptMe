@@ -1,0 +1,13 @@
+<% provide(:title, "New Prompt") %>
+<h1>Create a New Prompt</h1>
+
+<div class="row new_form">
+  <div class="col-md-6">
+    <%= form_for(@prompt, url: new_prompt_path) do |f| %>
+      <%= f.label :content %>
+      <%= f.text_area :content, class: 'form-control content-form' %>
+
+      <%= f.submit "Create Prompt", class: "btn btn-primary", id: 'log_in_button' %>
+    <% end %>
+  </div>
+</div>

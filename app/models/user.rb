@@ -1,4 +1,7 @@
 class User < ApplicationRecord
+  # A user can have many posts and we want those posts to be deleted if the user is
+  has_many :posts, dependent: :destroy
+  
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_save   :downcase_username

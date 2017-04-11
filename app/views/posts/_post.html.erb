@@ -1,0 +1,8 @@
+<div class="card">
+  <div class="card-header">
+    <%= post.prompt.content %>
+  </div>
+  <div class="card-block">
+    <p class="card-text"><%= truncate(post.content, length: 140) %></p>
+  </div>
+</div>

@@ -1,10 +1,15 @@
-<div class="center jumbotron">
-  <div class="container-fluid">
-    <h1 class="uppercase">Brennan Manning</h1>
-    <p>To be alive is to be broken;</p>
-    <p>to be broken is to stand in the need of grace.</p>
-    <p>It is only through grace that any of</p>
-    <p>us could dare to hope that we</p> 
-    <p>could become more like Christ</p>
+<div class="center jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-3">PromptMe</h1>
   </div>
 </div>
+<div class="container">
+  <% flash.each do |message_type, message| %>
+    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+  <% end %>
+</div>
+<div class="container-fluid">
+  <%= render @prompts %>
+</div>
+
+<%= render 'posts/form' %>

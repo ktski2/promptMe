@@ -2,6 +2,21 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 #log_in_button {
-  background-color: #636;
-  border-color: #636;
+  background-color: #456173;
+  border-color: #456173;
+}
+
+//.new_form {
+  //width: 600px;
+//  margin: 0 auto;
+//}
+
+.col-md-6 {
+  margin: 0 auto;
+  .form-control {
+    padding: 0.1rem 0.75rem;
+  } 
+  .content-form {
+    padding: 1rem 0.75rem;
+  }
 }

@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= yield(:title).presence || 'WriteIt' %></title>
+    <title><%= yield(:title).presence || 'PromptMe' %></title>
     <%= csrf_meta_tags %>
-
+    
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class='<%= controller.controller_name %>'>
+    <%= render 'layouts/header' %>
     <% if !current_page?(root_path) %>
-      <%= render 'layouts/header' %>
+      <div class="container">
+        <% flash.each do |message_type, message| %>
+          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+        <% end %>
+      </div>
     <% end %>
-    <div class="container">
-    <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-    <% end %>
-    </div>
     <%= yield %>
     <%= render 'layouts/footer' %>
   </body>
