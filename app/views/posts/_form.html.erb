@@ -10,9 +10,13 @@
         <%= form_for(Post.new, :html => {id: "form_for_" }, :remote => true) do |f| %>
           <%= f.text_area :content, class: 'form-control content-form', id: "modal_textarea" %>
           <%= f.hidden_field :prompt_id, id: "modal_prompt" %>
-          <%= f.hidden_field :user_id, :value => current_user.id %>
+          <% if current_user %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+          <% else %>
+            <%= f.hidden_field :user_id, :value => '' %>
+          <% end %>
         <% end %>
       </div>
     </div>
   </div>
-</div> 
+</div>
