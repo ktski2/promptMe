@@ -1,47 +1,257 @@
-// Place all the behaviors and hooks related to the matching controller here.
-// All this logic will automatically be available in application.js.
-// You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).on("turbolinks:load", function() {
+  var doneTypingInterval, lastRemovedIndex, linesToRemove, offset, postTimeout, progress, progressTimeout, removeLines, savePostOnServer, clearTimeoutHandle, scroll_start, startchange, stopedTyping, typingTimeout, typingTimer, userPostToSave;
 
-/*$('.home').ready ->
+  scroll_start = 0;
+  startchange = $('.container-fluid');
+  offset = startchange.offset();
 
-  $('.card').on 'click', (event) ->
-    $('#myModal').modal('show',$(this));
-    return
+  // Line removal variables
+  var preRemoveHtml = '<del>';//'<span class="removed_wrap"><span class="removed_text">';
+  var postRemoveHtml = '</del>';//'</span></span>';
 
-  $('#myModal').on 'show.bs.modal', (event) ->
-    promptCard = $(event.relatedTarget)
-    promptId = promptCard.data('id')
-    prompt = promptCard.find('.card-block .card-text').text()
-    console.log(prompt)
-    # Extract info from data-* attributes
-    # If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
-    # Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
-    # savePostOnServer()
-    modal = $(this)
-    modal.find('.modal-title').text prompt
-    return
+  $(document).scroll(function() {
+    if ($('.home').length && !$('#mobileCarousel').length) {
+      scroll_start = $(this).scrollTop();
+      if (startchange.length && scroll_start > (offset.top - 70)) {
+        $('#my_navbar').css('background-color', '#11BFAE');
+      } else {
+        $('#my_navbar').css('background-color', 'transparent');
+      }
+    } else {
+      return;
+    }
+  });
 
-  savePostOnServer = ->
-    $.ajax(
-      url: '/path/to/file'
-      type: 'default GET (Other values: POST)'
-      dataType: 'default: Intelligent Guess (Other values: xml, json, script, or html)'
-      data: param1: 'value1').done(->
-      console.log 'success'
-      return
-    ).fail(->
-      console.log 'error'
-      return
-    ).always ->
-      console.log 'complete'
-      return
-    return    
+  initialiizeVars = function() {
+    postTimeout = null;
+    progressTimeout = null;
+    typingTimeout = null;
 
-  return
+    doneTypingInterval = 5000;
+    stopedTyping = 0;
+    linesToRemove = 1;
 
-#$(".home").ready(function() {
-#  return alert("My example alert box.");
-#  $('.card-block').on('click', function(event) {
-#     alert('You clicked the Bootstrap Card');
-#  });
-#});*/
+    lastRemovedIndex = 0;
+    userPostToSave = [];
+    stopedTyping = 0;
+    doneTypingInterval = 5000;
+  };
+  // Actually submit the form or redirect to the log-in page if the user is not signed in
+  savePostOnServer = function(formClass, modal) {
+    var currentText = $('#myModal').find('#modal_textarea').val();
+    var workingArray = currentText.replace(/(<([^>]+)>)/ig, '').replace(/([.?!])/g, "$1|").split("|");
+    var temp = userPostToSave.concat(workingArray.slice(lastRemovedIndex));
+    userPostToSave = temp;
+    $('#myModal').find('#modal_textarea').val(userPostToSave);
+    $(formClass).submit();
+    modal.modal('hide');
+  };
+
+  clearTimeoutHandle = function(timeoutHandle) {
+    if(timeoutHandle){
+      clearTimeout(timeoutHandle);
+      timeoutHandle = null;
+    }
+  };
+
+  progress = function(timeleft, timetotal, $element) {
+    var progressBarWidth;
+    progressBarWidth = (timetotal - timeleft) * ($element.width() / timetotal);
+    $element.find('#progressBar').animate({
+      width: progressBarWidth
+    }, 1000, 'linear');
+    if (timeleft < 30) {
+      $element.find('#progressBar').css('background-color', '#F95959');
+    }
+    if (timeleft > 0) {
+      clearTimeoutHandle(progressTimeout);
+      progressTimeout = setTimeout((function() {
+        progress(timeleft - 1, timetotal, $element);
+      }), 1000);
+    }
+  };
+
+  typingTimer = function() {
+    if (stopedTyping === 3) {
+      doneTypingInterval = 3000;
+    } else if (stopedTyping === 5) {
+      doneTypingInterval = 1000;
+    }
+    clearTimeoutHandle(typingTimeout);
+    typingTimeout = setTimeout((function() {
+      console.log("heykt");
+      stopedTyping++;
+      removeLines();
+      typingTimer();
+    }), doneTypingInterval);
+  };
+
+  removeLines = function() {
+    var currentText = $('#myModal').find('#modal_textarea').val();
+    var workingArray = currentText.replace(/(<([^>]+)>)/ig, '').replace(/([.?!])/g, "$1|").split("|");
+    var workingLength = workingArray.length;
+    var start = (workingLength - linesToRemove) < 0 ? 0 : (workingLength - linesToRemove);
+    var temp;
+    var index;
+
+    if (currentText == '') {
+      // may want to increment linesToRemove at this point
+      return false;
+    }
+    if (workingArray[workingLength - 1].length == 0) {
+      workingArray.pop();
+      workingLength -= 1;
+    }
+    if (linesToRemove == 1) {
+      // adding html to save element
+      workingArray[workingLength - 1] = preRemoveHtml + workingArray[workingLength - 1] + postRemoveHtml;
+    } else {
+      // No lines were added, add the del tag to the end of the saved array
+      if (lastRemovedIndex == workingLength) {
+        userPostToSave[userPostToSave.length - 1] += postRemoveHtml;
+      } else {
+        workingArray[workingLength - 1] += postRemoveHtml;
+      }
+
+      if (start < lastRemovedIndex) {
+        // need to add the pretag in the userPostToSaveArray
+        index = userPostToSave.length - (workingLength - linesToRemove + lastRemovedIndex) + 1;
+        if (index >= userPostToSave.length) {
+          userPostToSave[start] = preRemoveHtml + userPostToSave[start];
+          start = lastRemovedIndex - 2;
+        } else {
+          userPostToSave[lastRemovedIndex -1] = preRemoveHtml + userPostToSave[lastRemovedIndex-1];
+      //start = lastRemovedIndex;
+        }
+
+      } else {
+        workingArray[start] = preRemoveHtml + workingArray[start];
+      }
+    }
+    // Add the new lines plus those with html to signify they were removed
+    if (lastRemovedIndex != workingLength) {
+      temp = userPostToSave.concat(workingArray.slice(lastRemovedIndex));
+      userPostToSave = temp;
+    }
+
+    // should start be lastRemovedIndex and linesTo Remove be adjusted by
+    workingArray.splice(start, linesToRemove);
+    //var temp = userPostToSave.join('');
+    $('#modal_textarea').val(workingArray.join(''));
+
+    // shoulf this be workinglength? or usersPostToSave.length
+    lastRemovedIndex = workingLength - linesToRemove;
+    linesToRemove++;
+    console.log("removing lines");
+  };
+
+  $('.card').on('click', function(event) {
+    var modalID;
+    modalID = '#myModal';
+    $(modalID).modal('show', $(this));
+  });
+
+  $('#myModal').on('show.bs.modal', function(event) {
+    var modal, prompt, promptCard, promptId, userID;
+    //linesToRemove = 1;
+    initialiizeVars();
+
+    promptCard = $(event.relatedTarget);
+    promptId = promptCard.data('id');
+    prompt = promptCard.find('.card-block .card-text').text();
+
+    modal = $(this);
+    modal.find('.modal-title').text(prompt);
+    modal.find('#modal_prompt').val(promptId);
+    userID = modal.find('#post_user_id').val();
+console.log(userID);
+    // start typing timer
+    typingTimer();
+    progress(60, 60, modal);
+
+    clearTimeoutHandle(postTimeout);
+    postTimeout = setTimeout((function() {
+      var formClass;
+      formClass = '#form_for_';
+
+      if (userID != 3) {
+        savePostOnServer(formClass, modal);
+      } else {
+        console.log('email');
+        console.log($('#myModal'));
+        clearTimeoutHandle(postTimeout);
+        clearTimeoutHandle(progressTimeout);
+        clearTimeoutHandle(typingTimeout);
+        $('.modal-body').css({
+          display: 'none'
+        });
+        $('.save_options').css({
+          display: 'inherit'
+        });
+        console.log($('#myModal'));
+      }
+    }), 10000);
+  });
+
+  $('#myModal').on('shown.bs.modal', function(event) {
+    var bodyHeight, input;
+    input = $('#modal_textarea');
+    bodyHeight = $('.modal-body').height();
+    input.focus().height(bodyHeight);
+    typingTimer();
+    input.bind('cut copy paste', function() {
+      return false;
+    });
+    input.keydown(function(e) {
+      if (e.keyCode === 8) {
+        return false;
+      }
+    });
+    input.on('keyup', function() {
+      typingTimer();
+    });
+    input.on('keydown', function() {
+      clearTimeoutHandle(typingTimeout);
+    });
+  });
+  $('#myModal').on('hidden.bs.modal', function(event) {
+    // Sets the textarea height back to it's initial state
+    $('#modal_textarea').height('initial');
+    var userID = $(this).find('#post_user_id').val();
+    if (!userID) {
+      $('.modal-body').css({
+          display: 'initial'
+        });
+      $('.save_options').css({
+          display: 'none'
+        });
+    }
+    $(this).find('form')[0].reset();
+    $('#progressBar').stop(true, true).width(0);
+    $('#progressBar').css('background-color', '#11BFAE');
+    clearTimeoutHandle(postTimeout);
+    clearTimeoutHandle(progressTimeout);
+    clearTimeoutHandle(typingTimeout);
+  });
+
+  $('.download-button').on('click', function(event) {
+    console.log('here');
+    var modal = $('#myModal');
+    var title = modal.find('.modal-title').text();
+    var post = modal.find('#modal_textarea').val();
+    $('input[name=pprompt]').val(title);
+    $('input[name=ptext]').val(post);
+    $('.button_form').submit();
+    modal.modal('hide');
+  });
+
+  $('#creat_account_button').on('click', function(event) {
+    modal = $(this);
+    formClass = '#form_for_';
+    savePostOnServer(formClass, modal);
+  });
+
+  $('#how_button').on('click', function(event) {
+    $('#howModal').modal('show', $(this));
+  });
+});

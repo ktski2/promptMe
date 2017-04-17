@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'users/new'
 
   get 'home/index'
-  
+
   get  '/signup',  to: 'users#new'
   post '/signup',  to: 'users#create'
 
@@ -30,5 +30,6 @@ Rails.application.routes.draw do
   #resources :prompts do
     resources :posts
   #end
+  match "/download_post" => "posts#download", via: :get
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

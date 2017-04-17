@@ -2,22 +2,27 @@
 <html>
   <head>
     <title><%= yield(:title).presence || 'PromptMe' %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <%= csrf_meta_tags %>
-    
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body class='<%= controller.controller_name %>'>
-    <%= render 'layouts/header' %>
-    <% if !current_page?(root_path) %>
-      <div class="container">
-        <% flash.each do |message_type, message| %>
-          <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-        <% end %>
-      </div>
+    <% if mobile_device? %>
+      <%= render 'layouts/mobile' %>
+    <% else %>
+      <%= render 'layouts/header' %>
+      <% if !current_page?(root_path) %>
+        <div class="container">
+          <% flash.each do |message_type, message| %>
+            <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+          <% end %>
+        </div>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
     <% end %>
-    <%= yield %>
-    <%= render 'layouts/footer' %>
   </body>
 </html>

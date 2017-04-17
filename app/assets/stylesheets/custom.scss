@@ -190,3 +190,42 @@ input, textarea, select, .uneditable-input {
 .new_form {
   margin: auto;
 }
+
+#mobileCarousel {
+  #jumbo_one {
+    padding: 10em 0;
+    background-image: url(image_path('notebook.jpg'));
+    background-size: cover;
+    height: 100%;
+    p {
+      color: #456173;
+    }
+    h1 {
+      color: #1B3C59;
+    }
+  }
+  #jumbo_two {
+    padding: 10em 0;
+    background-image: url(image_path('franceHole.jpg'));
+    background-size: cover;
+    height: 100%;
+    p {
+      color: #456173;
+    }
+    h1 {
+      color: #1B3C59;
+    }
+  }
+  #jumbo_three {
+    padding: 10em 0;
+    background-image: url(image_path('promptjumbo-compressor-again.jpg'));
+    background-size: cover;
+    height: 100%;
+    p {
+      color: #456173;
+    }
+    h1 {
+      color: #1B3C59;
+    }
+  }
+}

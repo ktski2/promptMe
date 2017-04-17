@@ -13,10 +13,22 @@
           <% if current_user %>
             <%= f.hidden_field :user_id, :value => current_user.id %>
           <% else %>
-            <%= f.hidden_field :user_id, :value => '' %>
+            <%= f.hidden_field :user_id, :value => 3 %>
           <% end %>
         <% end %>
       </div>
+      <% if !current_user %>
+        <div class="row save_options">
+          <div class="col first_col">
+            <p>Don't care to see what was deleted? Download a pdf of what was left!</p>
+            <%= button_to "Download", download_post_path, :method => "get", :form => {class: "button_form"}, class: "download-button btn btn-primary", params: {'ptext' => '', 'pprompt' => ''} %>
+          </div>
+          <div class="col">
+            <p>Want to see everything you wrote? Create and account or log in!</p>
+            <button type="button" class="btn btn-primary" id="creat_account_button">Create Account</button>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

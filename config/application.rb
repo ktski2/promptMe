@@ -13,3 +13,9 @@ module WriteIt
     # -- all .rb files in that directory are automatically loaded.
   end
 end
+
+# module RailsPdf
+#   class Application < Rails::Application
+#       config.middleware.use PDFKit::Middleware
+#   end
+# end

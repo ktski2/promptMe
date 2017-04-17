@@ -58,4 +58,20 @@ module SessionsHelper
   def store_location
     session[:forwarding_url] = request.original_url if request.get?
   end
+
+  # Stores the post_id the user has just created
+  def store_post_id(post_id)
+    session[:post_id] = post_id
+  end
+
+    # resets post id
+  def new_user_post?
+    !session[:post_id].nil?
+  end
+
+  # resets post id
+  def remove_post_id
+    cookies.delete(:post_id)
+    session.delete(:post_id)
+  end
 end

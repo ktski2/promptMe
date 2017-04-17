@@ -1,0 +1,17 @@
+<div class="modal fade" id="howModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="how_title">Don't Stop Typing</h4>
+      </div>
+      <div class="modal-body">
+        <p>Let the inspiration flow by clicking a prompt below. This will bring up a modal ready to be used, so start typing right away!</p>
+        <p>You will have five minutes to write about the prompt you have selected. Each time you stop typing for an extended period of time sentences will be deleted from your view. Each time you are found idle, the number of sentences to be removed will be incremented. The allowed idle time will also be decremented if you are caught too many times!</p>
+        <p>When the five minutes are up and you are signed in you will be redirected to your post. There you will see the everything you wrote, even what was deleted if you went idle.</p>
+        <p id="final_p">If you don't have and account you will either recieve the option to sign up or download your content. The downloaded content will only be what you currently see on the screen, so if you want to see everything, sign up!</p>
+      </div>
+      <%= link_to "Sign Up!", signup_path, class: "btn btn-primary", id: "sign_up_button" %>
+    </div>
+  </div>
+</div>
+

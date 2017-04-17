@@ -1,6 +1,6 @@
 class PromptsController < ApplicationController
-  before_action :logged_in_user, only: [:new, :create, :destroy]
-  before_action :admin_user,     only: [:new, :create, :destroy]
+  #before_action :logged_in_user, only: [:new, :create, :destroy]
+  before_action :admin_user,     only: [:destroy]#:new, :create, :destroy]
 
   def new
   	@prompt = Prompt.new

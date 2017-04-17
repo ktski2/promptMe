@@ -1,22 +1,33 @@
 class PostsController < ApplicationController
   def create
+    remove_post_id if new_user_post?
     @prompt = Prompt.find(params[:post][:prompt_id])
     @post = @prompt.posts.create(post_params)
-    @post.user_id = current_user.id
-    #respond_to do |format|
+    # @post.user_id = params[:post][:user_id] || 3
+    respond_to do |format|
       if @post.save
-    #    format.html { redirect_to current_user }
-    #    format.js { }
-    #    format.json { render :show, status: :created, location: current_user }
-        flash.now[:success] = "you saved it somehow kt"
-        #f.js
+        if !current_user
+          store_post_id(@post.id)
+          format.html { redirect_to signup_url }
+        else
+          @post.user_id = current_user.id
+          format.html { redirect_to current_user }
+        end
       else
-    #  	format.html { render :new }
-    #    format.json { render json: @post.errors, status: :unprocessable_entity }
-        flash.now[:danger] = "error"
-        #f.js
-   # end
-end
+        flash.now[:danger] = "error saving post"
+        format.html { redirect_to signup_url }
+      end
+    end
+  end
+
+  def download
+    @prompt = params[:pprompt]
+    @post = params[:ptext]
+    html = render_to_string(:partial => 'download', :layout => false, :locals => {prompt: @prompt, post: @post})
+    pdf = WickedPdf.new.pdf_from_string(html)
+    send_data(pdf,
+        :filename    => "temp.pdf",
+        :disposition => 'attachment')
   end
 
   private

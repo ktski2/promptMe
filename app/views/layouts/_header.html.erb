@@ -2,16 +2,14 @@
   <nav class="navbar navbar-toggleable-md fixed-top navbar-inverse" id="my_navbar">
     <%= link_to "PromptMe", root_url, class: "navbar-brand mr-auto", id: "logo" %>
       <ul class="nav navbar-nav justify-content-end">
-        <li class="nav-item"><%= link_to "Home",   root_path, class: "nav-link" %></li>
+        <li class="nav-item"><%= link_to "Contribute", new_prompt_path, class: "nav-link" %></li>
         <% if logged_in? %>
-          <li class="nav-item"><%= link_to "Users", '#', class: "nav-link" %></li>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
               Account <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "Profile", current_user, class: "nav-link" %></li>
-              <li><%= link_to "Settings", '#', class: "nav-link" %></li>
               <li class="dropdown-divider"></li>
               <li>
                 <%= link_to "Log out", logout_path, method: "delete", class: "nav-link" %>

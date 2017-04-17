@@ -6,10 +6,17 @@ class SessionsController < ApplicationController
   	user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       # comment out the if user activated and joining if you don't want to send an activation email.
-      if user.activated?
+      if user.activated? && !session[:post_id]
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         redirect_back_or user
+      elsif session[:post_id]
+        @post = Post.find(session[:post_id])
+        @post.update_attribute(:user_id, user.id)
+        message  = "Account not activated. "
+        message += "Check your email for the activation link."
+        flash[:warning] = message
+        redirect_to user
       else
         message  = "Account not activated. "
         message += "Check your email for the activation link."
