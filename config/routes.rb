@@ -31,5 +31,6 @@ Rails.application.routes.draw do
     resources :posts
   #end
   match "/download_post" => "posts#download", via: :get
+  match "/random_post" => "home#random_post", via: :get
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

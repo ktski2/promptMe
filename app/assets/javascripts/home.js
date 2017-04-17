@@ -39,9 +39,12 @@ $(document).on("turbolinks:load", function() {
   // Actually submit the form or redirect to the log-in page if the user is not signed in
   savePostOnServer = function(formClass, modal) {
     var currentText = $('#myModal').find('#modal_textarea').val();
-    var workingArray = currentText.replace(/(<([^>]+)>)/ig, '').replace(/([.?!])/g, "$1|").split("|");
-    var temp = userPostToSave.concat(workingArray.slice(lastRemovedIndex));
-    userPostToSave = temp;
+    if (currentText.trim.length != 0) {
+      var workingArray = currentText.replace(/(<([^>]+)>)/ig, '').replace(/([.?!])/g, "$1|").split("|");
+      var temp = userPostToSave.concat(workingArray.slice(lastRemovedIndex));
+      userPostToSave = temp;
+    }
+
     $('#myModal').find('#modal_textarea').val(userPostToSave);
     $(formClass).submit();
     modal.modal('hide');
@@ -52,6 +55,10 @@ $(document).on("turbolinks:load", function() {
       clearTimeout(timeoutHandle);
       timeoutHandle = null;
     }
+  };
+
+  showModal = function(response) {
+    $('#myModal').modal('show', response);
   };
 
   progress = function(timeleft, timetotal, $element) {
@@ -98,9 +105,10 @@ $(document).on("turbolinks:load", function() {
       // may want to increment linesToRemove at this point
       return false;
     }
-    if (workingArray[workingLength - 1].length == 0) {
+    if (workingArray[workingLength - 1].trim.length == 0) {
       workingArray.pop();
       workingLength -= 1;
+      start -=1 ;
     }
     if (linesToRemove == 1) {
       // adding html to save element
@@ -155,15 +163,16 @@ $(document).on("turbolinks:load", function() {
     var modal, prompt, promptCard, promptId, userID;
     //linesToRemove = 1;
     initialiizeVars();
-
+console.log(event);
     promptCard = $(event.relatedTarget);
-    promptId = promptCard.data('id');
-    prompt = promptCard.find('.card-block .card-text').text();
+    promptId = promptCard.data('id') || event.relatedTarget.id;
+    prompt = promptCard.find('.card-block .card-text').text() || event.relatedTarget.content;
 
     modal = $(this);
     modal.find('.modal-title').text(prompt);
     modal.find('#modal_prompt').val(promptId);
     userID = modal.find('#post_user_id').val();
+console.log(promptId);
 console.log(userID);
     // start typing timer
     typingTimer();
@@ -199,6 +208,7 @@ console.log(userID);
     bodyHeight = $('.modal-body').height();
     input.focus().height(bodyHeight);
     typingTimer();
+
     input.bind('cut copy paste', function() {
       return false;
     });
@@ -218,7 +228,7 @@ console.log(userID);
     // Sets the textarea height back to it's initial state
     $('#modal_textarea').height('initial');
     var userID = $(this).find('#post_user_id').val();
-    if (!userID) {
+    if (userID === 2) {
       $('.modal-body').css({
           display: 'initial'
         });
@@ -252,6 +262,22 @@ console.log(userID);
   });
 
   $('#how_button').on('click', function(event) {
-    $('#howModal').modal('show', $(this));
+    $('#howModal').modal('show');
+  });
+
+  $('#random-post').on('click', function(event) {
+    console.log('random');
+    var userID = $('#post_user_id').val();
+    event.preventDefault();
+    $.ajax({
+      method: "GET",
+      url: "random_post",
+      data: { user_id: userID },
+      dataType: 'json'
+    }).done(function(response) {
+      console.log(response);
+      console.log($(this));
+      showModal(response);
+    });
   });
 });
