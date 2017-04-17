@@ -191,41 +191,35 @@ input, textarea, select, .uneditable-input {
   margin: auto;
 }
 
-  #my_carousel {
-    height: 500px;
-    margin-bottom: 1em;
-
-    img {
-      object-fit: cover;
-      object-position: top;
-      width: 100%;
-      height: 500px;
-    }
-    #river_boat {
-      img {
-        object-position: center;
-      }
-      p {
-        color: #BC4F4F;//#872341;
-      }
-    }
-    #candles {
-      img {
-        object-position: center;
-      }
-      #how_button {
-        background-color: #11BFAE;
-        border: none;
-        margin-bottom: 2em;
-      }
-      h1 {
-        color: #11BFAE;
-      }
-    }
-    p {
-      color: #456173;
-    }
-    h1 {
-      color: #1B3C59;
-    }
+#mobileCarousel {
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  background-image: url(image_path("notebook.jpg"));
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+  .container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 0;
   }
+  // Use this if you are wanting a carousel
+  img {
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+    height: 100vh;
+  }
+  p {
+    color: #456173;
+  }
+  h1 {
+
+    text-align: center;
+    color: #1B3C59;
+  }
+}
