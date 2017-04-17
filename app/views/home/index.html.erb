@@ -14,8 +14,8 @@
     <div class="carousel-item" id="river_boat">
         <%= image_tag("river_boat.jpg", :alt => "river_boat") %>
         <div class="carousel-caption">
-          <h1 class="display-3">Just Write</h1>
-          <p>No backspace. No copy. No paste.</p>
+          <!-- <h1 class="display-3">Just Write</h1> -->
+          <h1 class="display-4">No backspace. No copy. No paste.</h1>
         </div>
     </div>
     <div class="carousel-item" id="candles">
@@ -25,11 +25,9 @@
         </div>
     </div>
       <a class="carousel-control-prev" href="#my_carousel" role="button" data-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Previous</span>
   </a>
   <a class="carousel-control-next" href="#my_carousel" role="button" data-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Next</span>
   </a>
   </div>
@@ -41,6 +39,7 @@
 </div>
 <div class="container-fluid">
   <%= render @prompts %>
+  <%= paginate @prompts %>
 </div>
 
 <%= render 'posts/form' %>

@@ -26,7 +26,7 @@ class PostsController < ApplicationController
     html = render_to_string(:partial => 'download', :layout => false, :locals => {prompt: @prompt, post: @post})
     pdf = WickedPdf.new.pdf_from_string(html)
     send_data(pdf,
-        :filename    => "temp.pdf",
+        :filename    => "promptMe.pdf",
         :disposition => 'attachment')
   end
 

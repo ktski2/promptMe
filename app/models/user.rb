@@ -1,17 +1,17 @@
 class User < ApplicationRecord
   # A user can have many posts and we want those posts to be deleted if the user is
   has_many :posts, dependent: :destroy
-  
+
   attr_accessor :remember_token, :activation_token, :reset_token
   before_save   :downcase_email
   before_save   :downcase_username
   before_create :create_activation_digest
-  validates :username, presence: true, length: { maximum: 50 }, 
+  validates :username, presence: true, length: { maximum: 50 },
                     format: { with: /\A[a-zA-Z0-9]+\Z/ },
                     uniqueness: { case_sensitive: false }
-  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
-  validates :email, presence: true, length: { maximum: 255 }, 
-                    format: { with: VALID_EMAIL_REGEX }, 
+  validates_email_format_of :email, :message => 'email address is invalid'
+
+  validates :email, presence: true, length: { maximum: 255 },
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }
