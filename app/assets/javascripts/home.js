@@ -174,7 +174,7 @@ console.log(userID);
       var formClass;
       formClass = '#form_for_';
 
-      if (userID != 3) {
+      if (userID != 2) {
         savePostOnServer(formClass, modal);
       } else {
         console.log('email');
