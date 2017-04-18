@@ -10,6 +10,12 @@ class SessionsController < ApplicationController
         log_in user
         params[:session][:remember_me] == '1' ? remember(user) : forget(user)
         redirect_back_or user
+      elsif user.activated? && session[:post_id]
+        @post = Post.find(session[:post_id])
+        @post.update_attribute(:user_id, user.id)
+        log_in user
+        params[:session][:remember_me] == '1' ? remember(user) : forget(user)
+        redirect_to user
       elsif session[:post_id]
         @post = Post.find(session[:post_id])
         @post.update_attribute(:user_id, user.id)
