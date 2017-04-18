@@ -11302,21 +11302,78 @@ input, textarea, select, .uneditable-input {
   margin: auto;
 }
 
+/* line 194, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/custom.scss */
+#mobileCarousel {
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  background-image: url("/assets/notebook-0b0ac24f677d3550873eabbf769ab3ad2981f5a084515490892ae7a0db67a947.jpg");
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+}
+/* line 203, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/custom.scss */
+#mobileCarousel .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 0;
+}
+/* line 211, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/custom.scss */
+#mobileCarousel img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  width: 100%;
+  height: 100vh;
+}
+/* line 217, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/custom.scss */
+#mobileCarousel p {
+  color: #456173;
+}
+/* line 220, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/custom.scss */
+#mobileCarousel h1 {
+  text-align: center;
+  color: #1B3C59;
+}
+
+/* line 227, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/custom.scss */
+.pagination_div {
+  margin: 0 auto;
+}
+/* line 229, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/custom.scss */
+.pagination_div span a {
+  color: #1B3C59;
+}
+/* line 231, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/custom.scss */
+.pagination_div span a:hover {
+  text-decoration: none;
+  color: #636c72;
+}
+/* line 236, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/custom.scss */
+.pagination_div .current {
+  color: #636c72;
+}
+
 /* line 4, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/sessions.scss */
 #log_in_button {
   background-color: #456173;
   border-color: #456173;
 }
 
-/* line 14, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/sessions.scss */
+/* line 9, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/sessions.scss */
 .col-md-6 {
   margin: 0 auto;
 }
-/* line 16, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/sessions.scss */
+/* line 11, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/sessions.scss */
 .col-md-6 .form-control {
   padding: 0.1rem 0.75rem;
 }
-/* line 19, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/sessions.scss */
+/* line 14, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/sessions.scss */
 .col-md-6 .content-form {
   padding: 1rem 0.75rem;
 }
@@ -11327,65 +11384,175 @@ input, textarea, select, .uneditable-input {
   border-color: #456173;
 }
 
+/* line 9, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/users.scss */
+del {
+  -webkit-text-decoration-color: #F95959;
+          text-decoration-color: #F95959;
+}
+
 /* line 4, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
 .home {
   padding-top: 0px;
   background-color: #F2F2F0;
 }
 /* line 7, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
-.home .jumbotron {
-  padding: 10em 0;
-  background-image: url("/assets/promptjumbo-compressor-again-0b0ac24f677d3550873eabbf769ab3ad2981f5a084515490892ae7a0db67a947.jpg");
-  background-size: cover;
-  height: 100%;
+.home #my_carousel {
+  height: 500px;
+  margin-bottom: 1em;
 }
-/* line 13, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
-.home .jumbotron p {
+/* line 11, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #my_carousel img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  width: 100%;
+  height: 500px;
+}
+/* line 18, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #my_carousel #river_boat img {
+  -o-object-position: center;
+     object-position: center;
+}
+/* line 21, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #my_carousel #river_boat h1 {
+  color: #BC4F4F;
+}
+/* line 26, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #my_carousel #candles img {
+  -o-object-position: center;
+     object-position: center;
+}
+/* line 29, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #my_carousel #candles #how_button {
+  background-color: #11BFAE;
+  border: none;
+  margin-bottom: 2em;
+}
+/* line 34, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #my_carousel #candles h1 {
+  color: #11BFAE;
+}
+/* line 38, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #my_carousel p {
   color: #456173;
 }
-/* line 16, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
-.home .jumbotron h1 {
+/* line 41, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #my_carousel h1 {
   color: #1B3C59;
 }
-/* line 20, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+/* line 46, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
 .home #my_navbar {
   background-color: transparent;
   -webkit-transition-duration: .2s;
           transition-duration: .2s;
 }
-/* line 24, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+/* line 50, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
 .home #prompt_footer {
   margin: auto;
   text-align: right;
 }
-/* line 29, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
-.home .modal-dialog {
+/* line 56, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #myModal .modal-dialog {
   width: 100%;
   height: 100%;
   margin: 0;
   padding: 0;
   max-width: none;
 }
-/* line 37, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
-.home .modal-content {
+/* line 64, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #myModal .modal-content {
   height: 100%;
   min-height: 100%;
   border-radius: 0;
 }
-/* line 46, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+/* line 70, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #myModal .no-display {
+  display: none;
+}
+/* line 76, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #howModal .modal-content {
+  border-radius: 0.25rem;
+}
+/* line 79, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #howModal #how_title {
+  margin: 0 auto;
+}
+/* line 83, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #howModal #final_p {
+  border-bottom: 1px solid #eceeef;
+  padding-bottom: 1em;
+}
+/* line 88, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #howModal #sign_up_button {
+  margin: 0 auto;
+  margin-bottom: 2em;
+  background-color: #1B3C59;
+  border-color: #1B3C59;
+}
+/* line 94, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #howModal .modal-dialog {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/* line 103, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #howModal .modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -100%);
+          transform: translate(0, -100%);
+}
+/* line 107, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #howModal .modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+/* line 112, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
 .home textarea.form-control {
   margin: 0;
   border: none;
 }
-/* line 51, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+/* line 117, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
 .home #progressBar {
   height: 4px;
   background-color: #11BFAE;
 }
-/* line 58, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+/* line 122, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
 .home #progressBar div {
   height: 100%;
   line-height: 4px;
   background-color: #CBEA00;
   box-sizing: border-box;
+}
+/* line 129, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home .save_options {
+  display: none;
+  margin-top: 15%;
+  text-align: center;
+}
+/* line 135, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home .button_form {
+  margin: 5px auto;
+  display: inline-block;
+}
+/* line 139, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home .download-button {
+  background-color: #456173;
+  border-color: #456173;
+}
+/* line 144, /Users/Katie/Desktop/fan/writeIt/app/assets/stylesheets/home.scss */
+.home #creat_account_button {
+  width: initial;
+  margin: 5px auto;
+  background-color: #456173;
+  border-color: #456173;
 }
