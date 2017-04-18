@@ -34,7 +34,6 @@ $(document).on("turbolinks:load", function() {
     lastRemovedIndex = 0;
     userPostToSave = [];
     stopedTyping = 0;
-    doneTypingInterval = 5000;
   };
   // Actually submit the form or redirect to the log-in page if the user is not signed in
   savePostOnServer = function(formClass, modal) {
@@ -81,12 +80,11 @@ $(document).on("turbolinks:load", function() {
   typingTimer = function() {
     if (stopedTyping === 3) {
       doneTypingInterval = 3000;
-    } else if (stopedTyping === 5) {
-      doneTypingInterval = 1000;
-    }
+     } //else if (stopedTyping === 5) {
+    //   doneTypingInterval = 1000;
+    // }
     clearTimeoutHandle(typingTimeout);
     typingTimeout = setTimeout((function() {
-      console.log("heykt");
       stopedTyping++;
       removeLines();
       typingTimer();
@@ -129,7 +127,6 @@ $(document).on("turbolinks:load", function() {
           start = lastRemovedIndex - 2;
         } else {
           userPostToSave[lastRemovedIndex -1] = preRemoveHtml + userPostToSave[lastRemovedIndex-1];
-      //start = lastRemovedIndex;
         }
 
       } else {
@@ -150,7 +147,6 @@ $(document).on("turbolinks:load", function() {
     // shoulf this be workinglength? or usersPostToSave.length
     lastRemovedIndex = workingLength - linesToRemove;
     linesToRemove++;
-    console.log("removing lines");
   };
 
   $('.card').on('click', function(event) {
@@ -161,7 +157,6 @@ $(document).on("turbolinks:load", function() {
 
   $('#myModal').on('show.bs.modal', function(event) {
     var modal, prompt, promptCard, promptId, userID;
-    //linesToRemove = 1;
     initialiizeVars();
 
     promptCard = $(event.relatedTarget);
@@ -175,7 +170,7 @@ $(document).on("turbolinks:load", function() {
 
     // start typing timer
     typingTimer();
-    progress(60, 60, modal);
+    progress(300, 300, modal);
 
     clearTimeoutHandle(postTimeout);
     postTimeout = setTimeout((function() {
@@ -185,20 +180,19 @@ $(document).on("turbolinks:load", function() {
       if (userID != 2) {
         savePostOnServer(formClass, modal);
       } else {
-        console.log('email');
-        console.log($('#myModal'));
         clearTimeoutHandle(postTimeout);
         clearTimeoutHandle(progressTimeout);
         clearTimeoutHandle(typingTimeout);
-        $('.modal-body').css({
+
+        $('#myModal_body').css({
           display: 'none'
         });
+        //event.stopPropagation();
         $('.save_options').css({
           display: 'inherit'
         });
-        console.log($('#myModal'));
       }
-    }), 10000);
+    }), 300000);
   });
 
   $('#myModal').on('shown.bs.modal', function(event) {
@@ -228,7 +222,7 @@ $(document).on("turbolinks:load", function() {
     $('#modal_textarea').height('initial');
     var userID = $(this).find('#post_user_id').val();
     if (userID === 2) {
-      $('.modal-body').css({
+      $('#myModal_body').css({
           display: 'initial'
         });
       $('.save_options').css({
@@ -274,8 +268,6 @@ $(document).on("turbolinks:load", function() {
       data: { user_id: userID },
       dataType: 'json'
     }).done(function(response) {
-      console.log(response);
-      console.log($(this));
       showModal(response);
     });
   });

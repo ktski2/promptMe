@@ -6,7 +6,7 @@
       <div class="modal-header">
         <h5 class="modal-title"></h5>
       </div>
-      <div class="modal-body">
+      <div class="modal-body" id="myModal_body">
         <%= form_for(Post.new, :html => {id: "form_for_" }, :remote => true) do |f| %>
           <%= f.text_area :content, class: 'form-control content-form', id: "modal_textarea" %>
           <%= f.hidden_field :prompt_id, id: "modal_prompt" %>
