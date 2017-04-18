@@ -147,18 +147,4 @@
     background-color: #456173;
     border-color: #456173;
   }
-
-  .pagination_div {
-    margin: 0 auto;
-    span a {
-      color: #1B3C59;
-      &:hover {
-        text-decoration: none;
-        color: #636c72;
-      }
-    }
-    .current {
-        color: #636c72;
-    }
-  }
 }
