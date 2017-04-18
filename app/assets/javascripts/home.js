@@ -264,7 +264,6 @@ $(document).on("turbolinks:load", function() {
   });
 
   $('#random-post').on('click', function(event) {
-    console.log('random');
     var userID = $('#post_user_id').val();
     event.preventDefault();
     $.ajax({
