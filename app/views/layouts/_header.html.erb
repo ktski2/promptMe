@@ -3,8 +3,9 @@
     <%= link_to "PromptMe", root_url, class: "navbar-brand mr-auto", id: "logo" %>
       <ul class="nav navbar-nav justify-content-end">
         <li class="nav-item"><%= link_to "Contribute", new_prompt_path, class: "nav-link" %></li>
-        <!-- <li class="nav-item"><%= link_to "Random", new_prompt_path, class: "nav-link" %></li> -->
+        <% if controller.controller_name == 'home' %>
         <li class="nav-item"><a class="nav-link" href="" id="random-post"> Random</a></li>
+        <% end %>
         <% if logged_in? %>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
