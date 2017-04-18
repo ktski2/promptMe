@@ -184,15 +184,22 @@ $(document).on("turbolinks:load", function() {
         clearTimeoutHandle(progressTimeout);
         clearTimeoutHandle(typingTimeout);
 
-        $('#myModal_body').css({
-          display: 'none'
-        });
-        //event.stopPropagation();
+        $('#myModal_body').addClass("no-display");
         $('.save_options').css({
           display: 'inherit'
         });
       }
     }), 300000);
+  });
+
+  $("html").on("keyup", function(e) {
+    if(e.keyCode === 27 && $('#myModal_body').hasClass("no-display")) {
+      $('#myModal_body').removeClass("no-display");
+      $('.save_options').css({
+        display: 'none'
+      });
+      $('#myModal').modal('hide');
+    }
   });
 
   $('#myModal').on('shown.bs.modal', function(event) {
@@ -222,12 +229,10 @@ $(document).on("turbolinks:load", function() {
     $('#modal_textarea').height('initial');
     var userID = $(this).find('#post_user_id').val();
     if (userID === 2) {
-      $('#myModal_body').css({
-          display: 'initial'
-        });
+      $('#myModal_body').removeClass("no-display")
       $('.save_options').css({
-          display: 'none'
-        });
+        display: 'none'
+      });
     }
     $(this).find('form')[0].reset();
     $('#progressBar').stop(true, true).width(0);
