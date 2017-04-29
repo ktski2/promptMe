@@ -18,6 +18,8 @@ Rails.application.routes.draw do
 
   get  '/new_prompt',  to: 'prompts#new'
   post '/new_prompt',  to: 'prompts#create'
+  delete '/remove_prompt/:id',  to: 'prompts#destroy'
+  get '/prompts',  to: 'prompts#show'
 
   # sessions
   get    '/login',   to: 'sessions#new'

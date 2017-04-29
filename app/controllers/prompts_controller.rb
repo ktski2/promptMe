@@ -1,9 +1,9 @@
 class PromptsController < ApplicationController
   #before_action :logged_in_user, only: [:new, :create, :destroy]
-  before_action :admin_user,     only: [:destroy]#:new, :create, :destroy]
+  before_action :admin_user,     only: [:show, :destroy]#:new, :create, :destroy]
 
   def new
-  	@prompt = Prompt.new
+    @prompt = Prompt.new
   end
 
   def create
@@ -16,7 +16,14 @@ class PromptsController < ApplicationController
     end
   end
 
+  def show
+    @prompts = Prompt.order(created_at: :asc).page(params[:page]).per(15)
+  end
+
   def destroy
+    Prompt.find(params[:id]).destroy
+    flash[:success] = "Prompt deleted"
+    redirect_to prompts_url
   end
 
   private

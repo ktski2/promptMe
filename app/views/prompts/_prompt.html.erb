@@ -1,6 +1,12 @@
 <div class="card"  id="<%= prompt.id %>" data-id="<%= prompt.id %>">
   <div class="card-block">
     <p class="card-text"><%= prompt.content %></p>
-    <footer id="prompt_footer">number of posts (<%= prompt.posts.count %>)</footer>
+    <% if current_user && current_user.admin? && controller.controller_name != 'home' %>
+      <footer id="prompt_footer">
+        <%= link_to 'Destroy', prompt, data: {:confirm => 'Are you sure?'}, :method => :delete %>
+      </footer>
+    <% else %>
+      <footer id="prompt_footer">number of posts (<%= prompt.posts.count %>)</footer>
+    <% end %>
   </div>
 </div>
