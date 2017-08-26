@@ -1,24 +1,12 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a creative writing practice site. The user is able to select a prompt and given five minutes to write whatever comes to mind. If the user stops typing for five seconds sentences will be removed from their textarea. The number of sentences is increased as the user continues to incur the time penalty. At the end of the five minutes, the user is able to save what is in the textarea of make an account to see everything they wrote including the sentences that were deleted.
 
-Things you may want to cover:
+The "live" site can be found at https://thawing-lake-70659.herokuapp.com/
 
-* Ruby version
+Built with
+  Rails 5.0.2
+  ruby 2.3.1
+  postgresql
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Deployed on heroku
