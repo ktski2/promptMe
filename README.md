@@ -5,8 +5,8 @@ This is a creative writing practice site. The user is able to select a prompt an
 The "live" site can be found at https://thawing-lake-70659.herokuapp.com/
 
 Built with
-  Rails 5.0.2
-  ruby 2.3.1
-  postgresql
+* Rails 5.0.2
+* ruby 2.3.1
+* postgresql
 
 Deployed on heroku
