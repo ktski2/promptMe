@@ -1,0 +1,26 @@
+/* line 4, app/assets/stylesheets/users.scss */
+#new_user_button {
+  background-color: #456173;
+  border-color: #456173;
+}
+
+/* line 9, app/assets/stylesheets/users.scss */
+del {
+  -webkit-text-decoration-color: #F95959;
+          text-decoration-color: #F95959;
+}
+
+/* line 14, app/assets/stylesheets/users.scss */
+.users .card {
+  cursor: default;
+}
+
+/* line 16, app/assets/stylesheets/users.scss */
+.users .card .card-header {
+  cursor: default;
+}
+
+/* line 19, app/assets/stylesheets/users.scss */
+.users .card .card-body {
+  cursor: default;
+}

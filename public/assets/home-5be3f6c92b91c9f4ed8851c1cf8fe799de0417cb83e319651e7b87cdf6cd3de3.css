@@ -1,0 +1,195 @@
+/* line 4, app/assets/stylesheets/home.scss */
+.home {
+  padding-top: 0px;
+  background-color: #F2F2F0;
+  /*  #progressBar div {
+    height: 100%;
+    line-height: 4px;
+    background-color: #CBEA00;
+    box-sizing: border-box;
+  }*/
+}
+
+/* line 7, app/assets/stylesheets/home.scss */
+.home #my_carousel {
+  height: 500px;
+  margin-bottom: 1em;
+}
+
+/* line 11, app/assets/stylesheets/home.scss */
+.home #my_carousel img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  width: 100%;
+  height: 500px;
+}
+
+/* line 18, app/assets/stylesheets/home.scss */
+.home #my_carousel #river_boat img {
+  -o-object-position: center;
+     object-position: center;
+}
+
+/* line 21, app/assets/stylesheets/home.scss */
+.home #my_carousel #river_boat h1 {
+  color: #ffffff;
+}
+
+/* line 26, app/assets/stylesheets/home.scss */
+.home #my_carousel #candles img {
+  -o-object-position: center;
+     object-position: center;
+}
+
+/* line 29, app/assets/stylesheets/home.scss */
+.home #my_carousel #candles #how_button {
+  background-color: #11BFAE;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 2em;
+}
+
+/* line 35, app/assets/stylesheets/home.scss */
+.home #my_carousel #candles h1 {
+  color: #11BFAE;
+}
+
+/* line 39, app/assets/stylesheets/home.scss */
+.home #my_carousel p {
+  color: #456173;
+}
+
+/* line 42, app/assets/stylesheets/home.scss */
+.home #my_carousel h1 {
+  color: #1B3C59;
+}
+
+/* line 47, app/assets/stylesheets/home.scss */
+.home #my_navbar {
+  background-color: transparent;
+  -webkit-transition-duration: .2s;
+          transition-duration: .2s;
+}
+
+/* line 51, app/assets/stylesheets/home.scss */
+.home #prompt_footer {
+  margin: auto;
+  text-align: right;
+}
+
+/* line 57, app/assets/stylesheets/home.scss */
+.home #myModal .modal-dialog {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  max-width: none;
+}
+
+/* line 65, app/assets/stylesheets/home.scss */
+.home #myModal .modal-content {
+  height: 100%;
+  min-height: 100%;
+  border-radius: 0;
+}
+
+/* line 71, app/assets/stylesheets/home.scss */
+.home #myModal .no-display {
+  display: none;
+}
+
+/* line 77, app/assets/stylesheets/home.scss */
+.home #howModal .modal-content {
+  border-radius: 0.25rem;
+}
+
+/* line 80, app/assets/stylesheets/home.scss */
+.home #howModal #how_title {
+  margin: 0 auto;
+}
+
+/* line 84, app/assets/stylesheets/home.scss */
+.home #howModal #final_p {
+  border-bottom: 1px solid #eceeef;
+  padding-bottom: 1em;
+}
+
+/* line 89, app/assets/stylesheets/home.scss */
+.home #howModal #sign_up_button {
+  margin: 0 auto;
+  margin-bottom: 2em;
+  background-color: #1B3C59;
+  border-color: #1B3C59;
+}
+
+/* line 95, app/assets/stylesheets/home.scss */
+.home #howModal .modal-dialog {
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 100vh;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+/* line 104, app/assets/stylesheets/home.scss */
+.home #howModal .modal.fade .modal-dialog {
+  -webkit-transform: translate(0, -100%);
+          transform: translate(0, -100%);
+}
+
+/* line 108, app/assets/stylesheets/home.scss */
+.home #howModal .modal.in .modal-dialog {
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+/* line 113, app/assets/stylesheets/home.scss */
+.home textarea.form-control {
+  margin: 0;
+  border: none;
+}
+
+/* line 118, app/assets/stylesheets/home.scss */
+.home #progressBar {
+  height: 4px;
+}
+
+/* line 121, app/assets/stylesheets/home.scss */
+.home #progress {
+  height: 4px;
+  background-color: #11BFAE;
+}
+
+/* line 133, app/assets/stylesheets/home.scss */
+.home .save_options {
+  display: none;
+  margin-top: 15%;
+  text-align: center;
+}
+
+/* line 139, app/assets/stylesheets/home.scss */
+.home .button_form {
+  margin: 5px auto;
+  display: inline-block;
+}
+
+/* line 143, app/assets/stylesheets/home.scss */
+.home .download-button {
+  background-color: #456173;
+  border-color: #456173;
+}
+
+/* line 148, app/assets/stylesheets/home.scss */
+.home #creat_account_button {
+  width: initial;
+  margin: 5px auto;
+  background-color: #456173;
+  border-color: #456173;
+}

@@ -1,0 +1,307 @@
+/* mixins, variables, etc. */
+/* universal */
+/* line 19, app/assets/stylesheets/custom.scss */
+body {
+  padding-top: 60px;
+  background-color: #F2F2F0;
+}
+
+/* line 24, app/assets/stylesheets/custom.scss */
+section {
+  overflow: auto;
+}
+
+/* line 28, app/assets/stylesheets/custom.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 32, app/assets/stylesheets/custom.scss */
+.center {
+  text-align: center;
+}
+
+/* line 34, app/assets/stylesheets/custom.scss */
+.center h1 {
+  margin-bottom: 10px;
+}
+
+/* typography */
+/* line 41, app/assets/stylesheets/custom.scss */
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1;
+  color: #6f7272;
+}
+
+/* line 46, app/assets/stylesheets/custom.scss */
+h1 {
+  font-size: 3em;
+  letter-spacing: -2px;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+/* line 53, app/assets/stylesheets/custom.scss */
+h2 {
+  font-size: 1.2em;
+  letter-spacing: -1px;
+  margin-bottom: 30px;
+  text-align: center;
+  font-weight: normal;
+  color: gray;
+}
+
+/* line 62, app/assets/stylesheets/custom.scss */
+p {
+  font-size: 1.1em;
+  line-height: 1.7em;
+}
+
+/* line 67, app/assets/stylesheets/custom.scss */
+.btn {
+  border-radius: 0;
+}
+
+/* header */
+/* line 74, app/assets/stylesheets/custom.scss */
+#logo {
+  float: left;
+  margin-right: 10px;
+  font-size: 1.7em;
+  color: #f7f7f5;
+  letter-spacing: -1px;
+  font-weight: bold;
+}
+
+/* line 81, app/assets/stylesheets/custom.scss */
+#logo:hover {
+  color: white;
+  text-decoration: none;
+}
+
+/* line 87, app/assets/stylesheets/custom.scss */
+#my_navbar {
+  background-color: #11BFAE;
+  border: none;
+  padding: 0.1em 1em;
+}
+
+/* line 91, app/assets/stylesheets/custom.scss */
+#my_navbar .nav-link {
+  color: white;
+}
+
+/* line 94, app/assets/stylesheets/custom.scss */
+#my_navbar .nav-link:hover {
+  opacity: .7;
+}
+
+/* line 97, app/assets/stylesheets/custom.scss */
+#my_navbar .dropdown-menu {
+  left: -4em;
+  padding: 0.2em 0;
+  background-color: #F2F2F0;
+  border-radius: 0;
+  border: none;
+}
+
+/* line 103, app/assets/stylesheets/custom.scss */
+#my_navbar .dropdown-menu a {
+  color: #11BFAE;
+}
+
+/* line 105, app/assets/stylesheets/custom.scss */
+#my_navbar .dropdown-menu a:hover {
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+
+/* line 110, app/assets/stylesheets/custom.scss */
+#my_navbar .dropdown-menu .dropdown-divider {
+  margin: 0;
+}
+
+/* line 116, app/assets/stylesheets/custom.scss */
+.navbar-inverse .navbar-nav > li > a {
+  color: #f7f7f5;
+}
+
+/* line 119, app/assets/stylesheets/custom.scss */
+.navbar-inverse .navbar-nav > li > a:hover {
+  color: white;
+}
+
+/* line 123, app/assets/stylesheets/custom.scss */
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:hover, .navbar-inverse .navbar-nav > .open > a:focus {
+  color: white;
+  background-color: #11BFAE;
+}
+
+/* footer */
+/* line 130, app/assets/stylesheets/custom.scss */
+footer {
+  margin-top: 45px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: gray;
+}
+
+/* line 135, app/assets/stylesheets/custom.scss */
+footer a {
+  color: gray;
+}
+
+/* line 137, app/assets/stylesheets/custom.scss */
+footer a:hover {
+  color: #222;
+}
+
+/* line 141, app/assets/stylesheets/custom.scss */
+footer small {
+  float: left;
+}
+
+/* line 144, app/assets/stylesheets/custom.scss */
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+/* line 147, app/assets/stylesheets/custom.scss */
+footer ul li {
+  float: left;
+  margin-left: 15px;
+}
+
+/* forms */
+/* line 156, app/assets/stylesheets/custom.scss */
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  overflow: auto;
+  resize: none;
+  box-sizing: border-box;
+}
+
+/* line 165, app/assets/stylesheets/custom.scss */
+#error_explanation {
+  border: none;
+  color: red;
+}
+
+/* line 168, app/assets/stylesheets/custom.scss */
+#error_explanation ul {
+  color: red;
+  margin: 0 0 30px 0;
+}
+
+/* line 176, app/assets/stylesheets/custom.scss */
+.field_with_errors .form-control {
+  color: #F95959;
+}
+
+/* line 181, app/assets/stylesheets/custom.scss */
+#modal_textarea:focus {
+  border: none;
+  box-shadow: none;
+}
+
+/* line 186, app/assets/stylesheets/custom.scss */
+.checkbox {
+  margin-top: -10px;
+  margin-bottom: 10px;
+}
+
+/* line 189, app/assets/stylesheets/custom.scss */
+.checkbox span {
+  margin-left: 20px;
+  font-weight: normal;
+}
+
+/* line 195, app/assets/stylesheets/custom.scss */
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+/* line 200, app/assets/stylesheets/custom.scss */
+.card {
+  margin-bottom: 1em;
+  color: #456173;
+  border-radius: 0;
+}
+
+/* line 204, app/assets/stylesheets/custom.scss */
+.card:hover {
+  cursor: pointer;
+}
+
+/* line 209, app/assets/stylesheets/custom.scss */
+.new_form {
+  margin: auto;
+}
+
+/* line 213, app/assets/stylesheets/custom.scss */
+#mobileCarousel {
+  text-align: center;
+  height: 100vh;
+  width: 100vw;
+  margin: 0 auto;
+  background-image: url("/assets/notebook-0b0ac24f677d3550873eabbf769ab3ad2981f5a084515490892ae7a0db67a947.jpg");
+  background-size: cover;
+  height: 100vh;
+  background-position: center;
+}
+
+/* line 222, app/assets/stylesheets/custom.scss */
+#mobileCarousel .container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  padding: 0;
+}
+
+/* line 230, app/assets/stylesheets/custom.scss */
+#mobileCarousel img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: top;
+     object-position: top;
+  width: 100%;
+  height: 100vh;
+}
+
+/* line 236, app/assets/stylesheets/custom.scss */
+#mobileCarousel p {
+  color: #456173;
+}
+
+/* line 239, app/assets/stylesheets/custom.scss */
+#mobileCarousel h1 {
+  text-align: center;
+  color: #1B3C59;
+}
+
+/* line 246, app/assets/stylesheets/custom.scss */
+.pagination_div {
+  margin: 0 auto;
+}
+
+/* line 248, app/assets/stylesheets/custom.scss */
+.pagination_div span a {
+  color: #1B3C59;
+}
+
+/* line 250, app/assets/stylesheets/custom.scss */
+.pagination_div span a:hover {
+  text-decoration: none;
+  color: #636c72;
+}
+
+/* line 255, app/assets/stylesheets/custom.scss */
+.pagination_div .current {
+  color: #636c72;
+}
