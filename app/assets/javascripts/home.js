@@ -63,11 +63,11 @@ $(document).on("turbolinks:load", function() {
   progress = function(timeleft, timetotal, $element) {
     var progressBarWidth;
     progressBarWidth = (timetotal - timeleft) * ($element.width() / timetotal);
-    $element.find('#progressBar').animate({
+    $element.find('#progress').animate({
       width: progressBarWidth
     }, 1000, 'linear');
     if (timeleft < 30) {
-      $element.find('#progressBar').css('background-color', '#F95959');
+      $element.find('#progress').css('background-color', '#F95959');
     }
     if (timeleft > 0) {
       clearTimeoutHandle(progressTimeout);

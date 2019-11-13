@@ -19,7 +19,7 @@
         object-position: center;
       }
       h1 {
-        color: #BC4F4F;//#872341;
+        color: #ffffff;//#BC4F4F;//#872341;
       }
     }
     #candles {
@@ -29,6 +29,7 @@
       #how_button {
         background-color: #11BFAE;
         border: none;
+        border-radius: 0;
         margin-bottom: 2em;
       }
       h1 {
@@ -116,15 +117,18 @@
 
   #progressBar {
     height: 4px;
+  }
+  #progress {
+    height: 4px;
     background-color: #11BFAE;
   }
 
-  #progressBar div {
+/*  #progressBar div {
     height: 100%;
     line-height: 4px;
     background-color: #CBEA00;
     box-sizing: border-box;
-  }
+  }*/
 
   .save_options {
     display: none;
