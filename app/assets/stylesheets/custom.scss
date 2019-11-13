@@ -2,9 +2,11 @@
 
 
 /* mixins, variables, etc. */
-
+$gray: gray;
+$gray-light: gray;
 $gray-medium-light: #eaeaea;
 $gray-darker: #222;
+$state-danger-text: #F95959;
 
 @mixin box_sizing {
   -moz-box-sizing:    border-box;
@@ -170,10 +172,15 @@ input, textarea, select, .uneditable-input {
 }
 
 .field_with_errors {
-  @extend .has-danger;
+  @extend .has-danger !optional;
   .form-control {
     color: $state-danger-text;
   }
+}
+
+#modal_textarea:focus {
+  border: none;
+  box-shadow: none;
 }
 
 .checkbox {

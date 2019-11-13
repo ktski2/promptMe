@@ -1,5 +1,5 @@
 <div class="card"  id="<%= prompt.id %>" data-id="<%= prompt.id %>">
-  <div class="card-block">
+  <div class="card-body">
     <p class="card-text"><%= prompt.content %></p>
     <% if current_user && current_user.admin? && controller.controller_name != 'home' %>
       <footer id="prompt_footer">

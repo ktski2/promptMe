@@ -10,12 +10,14 @@ del {
     text-decoration-color: #F95959;
 }
 
-.card {
-  cursor: default;
-  .card-header {
+.users {
+  .card {
     cursor: default;
-  }
-  .card-block {
-    cursor: default;
+    .card-header {
+      cursor: default;
+    }
+    .card-body {
+      cursor: default;
+    }
   }
 }

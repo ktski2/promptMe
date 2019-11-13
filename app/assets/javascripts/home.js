@@ -171,7 +171,7 @@ $(document).on("turbolinks:load", function() {
 
     promptCard = $(event.relatedTarget);
     promptId = promptCard.data('id') || event.relatedTarget.id;
-    prompt = promptCard.find('.card-block .card-text').text() || event.relatedTarget.content;
+    prompt = promptCard.find('.card-body .card-text').text() || event.relatedTarget.content;
 
     modal = $(this);
     modal.find('.modal-title').text(prompt);

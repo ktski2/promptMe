@@ -8,9 +8,9 @@ gem 'pg', '~> 0.18'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+# gem 'sass-rails', '~> 5.0'
 #gem 'bootstrap-sass', '3.3.6'
-gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'bootstrap', '>= 4.3.1'
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
