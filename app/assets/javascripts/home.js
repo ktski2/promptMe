@@ -93,58 +93,68 @@ $(document).on("turbolinks:load", function() {
 
   removeLines = function() {
     var currentText = $('#myModal').find('#modal_textarea').val();
-    var workingArray = currentText.replace(/(<([^>]+)>)/ig, '').replace(/([.?!])/g, "$1|").split("|");
-    var workingLength = workingArray.length;
-    var start = (workingLength - linesToRemove) < 0 ? 0 : (workingLength - linesToRemove);
     var temp;
     var index;
 
+    // Create the array variables to manipulate textarea content
+    var workingArray = currentText.replace(/(<([^>]+)>)/ig, '').replace(/([.?!])/g, "$1|").split("|");
+    var workingLength = workingArray.length;
+
+    // index of the beginning of line removal
+    var start = (workingLength - linesToRemove) < 0 ? 0 : (workingLength - linesToRemove);
+
+    // Don't do anything, the User hasn't written anything yet.
     if (currentText == '') {
-      // may want to increment linesToRemove at this point
       return false;
     }
+
+    // Remove last item in array if it contains no content
     if (workingArray[workingLength - 1].trim().length === 0) {
       workingArray.pop();
       workingLength -= 1;
       start -=1 ;
     }
+
+    // For simple case we just need to add html tags in front and after the last element of the array
     if (linesToRemove == 1) {
-      // adding html to save element
       workingArray[workingLength - 1] = preRemoveHtml + workingArray[workingLength - 1] + postRemoveHtml;
     } else {
-      // No lines were added, add the del tag to the end of the saved array
+      // Add the html tag to the end of appropriate array
       if (lastRemovedIndex == workingLength) {
+        // No new lines, so only care about the already saved sentences
         userPostToSave[userPostToSave.length - 1] += postRemoveHtml;
       } else {
         workingArray[workingLength - 1] += postRemoveHtml;
       }
 
+      // need to add the pretag in the appropriate array
       if (start < lastRemovedIndex) {
-        // need to add the pretag in the userPostToSaveArray
+        // We have to remove lines that have already been saved  off.
         index = userPostToSave.length - (workingLength - linesToRemove + lastRemovedIndex) + 1;
         if (index >= userPostToSave.length) {
+          // This is the case where we are trying to remove more or the same amount that we have in our
+          // working array and some or all of the values have already been added to the saved post
           userPostToSave[start] = preRemoveHtml + userPostToSave[start];
-          start = lastRemovedIndex - 2;
         } else {
-          userPostToSave[lastRemovedIndex -1] = preRemoveHtml + userPostToSave[lastRemovedIndex-1];
+          userPostToSave[index] = preRemoveHtml + userPostToSave[index];
         }
-
       } else {
         workingArray[start] = preRemoveHtml + workingArray[start];
       }
     }
+
     // Add the new lines plus those with html to signify they were removed
     if (lastRemovedIndex != workingLength) {
       temp = userPostToSave.concat(workingArray.slice(lastRemovedIndex));
       userPostToSave = temp;
     }
 
-    // should start be lastRemovedIndex and linesTo Remove be adjusted by
+    // Remove the desired lines from the working array
     workingArray.splice(start, linesToRemove);
-    //var temp = userPostToSave.join('');
+    // Reset the text area with the working array less the lines removed
     $('#modal_textarea').val(workingArray.join(''));
 
-    // shoulf this be workinglength? or usersPostToSave.length
+    // Increase the number of lines to remove and update the lastRemovedIndex
     lastRemovedIndex = workingLength - linesToRemove;
     linesToRemove++;
   };
@@ -189,7 +199,7 @@ $(document).on("turbolinks:load", function() {
           display: 'inherit'
         });
       }
-    }), 300000);
+    }), 90000);//300000
   });
 
   $("html").on("keyup", function(e) {
