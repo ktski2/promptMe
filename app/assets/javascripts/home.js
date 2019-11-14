@@ -136,7 +136,8 @@ $(document).on("turbolinks:load", function() {
           // working array and some or all of the values have already been added to the saved post
           userPostToSave[start] = preRemoveHtml + userPostToSave[start];
         } else {
-          userPostToSave[index] = preRemoveHtml + userPostToSave[index];
+          // userPostToSave[index] = preRemoveHtml + userPostToSave[index];
+          workingArray[start] = preRemoveHtml + workingArray[start];
         }
       } else {
         workingArray[start] = preRemoveHtml + workingArray[start];
