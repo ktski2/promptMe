@@ -199,7 +199,7 @@ $(document).on("turbolinks:load", function() {
           display: 'inherit'
         });
       }
-    }), 90000);//300000
+    }), 300000);//
   });
 
   $("html").on("keyup", function(e) {
