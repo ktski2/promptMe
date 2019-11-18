@@ -64,7 +64,7 @@ module SessionsHelper
     session[:post_id] = post_id
   end
 
-    # resets post id
+    # checks if post id set
   def new_user_post?
     !session[:post_id].nil?
   end

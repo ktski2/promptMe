@@ -6,12 +6,10 @@ class UsersController < ApplicationController
   def show
     remove_post_id if new_user_post?
     @user = User.find(params[:id])
-    # @posts = @user.posts.all
     @posts = @user.posts.order(created_at: :asc).page(params[:page]).per(5)
     respond_to do |format|
       format.html
     end
-    #redirect_to root_url and return unless @user.authenticated?(:activation, @user.id)
   end
 
   def new

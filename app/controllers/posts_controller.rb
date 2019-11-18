@@ -3,7 +3,6 @@ class PostsController < ApplicationController
     remove_post_id if new_user_post?
     @prompt = Prompt.find(params[:post][:prompt_id])
     @post = @prompt.posts.create(post_params)
-    # @post.user_id = params[:post][:user_id] || 3
     respond_to do |format|
       if @post.save
         if !current_user

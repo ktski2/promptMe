@@ -80,9 +80,7 @@ $(document).on("turbolinks:load", function() {
   typingTimer = function() {
     if (stopedTyping === 3) {
       doneTypingInterval = 3000;
-     } //else if (stopedTyping === 5) {
-    //   doneTypingInterval = 1000;
-    // }
+     }
     clearTimeoutHandle(typingTimeout);
     typingTimeout = setTimeout((function() {
       stopedTyping++;
@@ -138,7 +136,8 @@ $(document).on("turbolinks:load", function() {
         } else {
           var currIndex = userPostToSave.indexOf(workingArray[start]);
           var difference = userPostToSave.slice(0,currIndex).filter(x => !workingArray.includes(x));
-          userPostToSave[start + difference.length] = preRemoveHtml + userPostToSave[start + difference.length];
+          var idx = start + difference.length;
+          userPostToSave[idx] = preRemoveHtml +userPostToSave[idx];
         }
       } else {
         workingArray[start] = preRemoveHtml + workingArray[start];
@@ -201,7 +200,7 @@ $(document).on("turbolinks:load", function() {
           display: 'inherit'
         });
       }
-    }), 300000);//300000
+    }), 300000);
   });
 
   $("html").on("keyup", function(e) {
