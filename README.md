@@ -6,7 +6,7 @@ The "live" site can be found at https://thawing-lake-70659.herokuapp.com/
 
 Built with
 * Rails 5.0.2
-* ruby 2.3.1
+* ruby 2.6.0
 * postgresql
 
 Deployed on heroku
